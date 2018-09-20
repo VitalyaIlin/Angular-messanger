@@ -1,0 +1,96 @@
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+ }
+
+ mat-toolbar{
+     display: flex;
+     align-items: center;
+     padding: 0;
+     position: relative;
+ }
+
+ mat-icon{
+     cursor: pointer;
+ }
+
+ a{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 16px;
+ }
+
+ a:hover{
+     background: #3F51B5;
+ }
+
+ #menu-toggle{
+     margin-left: 16px;
+     cursor: pointer;
+ }
+
+ #menu{
+    min-width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 3;
+    background: #4b5ec7;
+ }
+
+ #menu a{
+     height: auto;
+ }
+
+ .menu-userdata{
+     background: #303f9f;
+     box-sizing: border-box;
+     padding: 16px;
+ }
+
+ .menu-userdata>p{
+     display: inline-block;
+     font-weight: bold;
+     color: #fff;
+ }
+
+ .menu-photo{
+     width: 45px;
+     height: 45px;
+     overflow: hidden;
+     border-radius: 50%;
+     margin-bottom: 16px;
+ }
+
+.menu-photo img{
+    width: 100%;
+    height: 100%;
+}
+
+.notifications{
+    width: 300px;
+    height: 600px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    position: absolute;
+    top: 60px;
+    right: 91px;
+    color: #000; 
+}
+.notifications:after{
+    content: "";
+    width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+    border-bottom: 16px solid #eee;
+    position: absolute;
+    top: -16px;
+    right: 0;
+}

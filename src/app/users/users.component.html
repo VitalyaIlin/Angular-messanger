@@ -1,0 +1,30 @@
+<section class="all-users">
+  <div class="users">
+      <div *ngFor="let user of users" class="user" (mouseenter)="showUserProfile(user)">
+          <div class="user-photo-wrap" >
+              <img src="../../assets/uploads/{{user.photoName}}" *ngIf="user.photoName" alt="">
+              <div class="no-photo" *ngIf="!user.photoName">
+                <p>{{user.firstname.substring(0,1).toUpperCase()}}</p>
+                <p>{{user.secondname.substring(0,1).toUpperCase()}}</p>
+              </div>
+          </div>
+        <p>{{user.firstname}}</p>
+        <p>{{user.secondname}}</p>
+        <mat-icon (click)="addFriend(user._id)">add</mat-icon>
+      </div>
+  </div>
+  <div class="user-profile" [ngClass]="profileFlag ? 'show' : 'hide'">
+      <div class="user-photo-wrap" >
+          <img src="../../assets/uploads/{{photoName}}" *ngIf="photoName" alt="">
+          <div class="no-photo" *ngIf="!photoName">
+              <p>{{firstname.substring(0,1).toUpperCase()}}</p>
+              <p>{{secondname.substring(0,1).toUpperCase()}}</p>
+          </div>
+      </div>
+    <p>{{firstname}}</p>
+    <p>{{secondname}}</p>
+  </div>
+
+</section>
+
+

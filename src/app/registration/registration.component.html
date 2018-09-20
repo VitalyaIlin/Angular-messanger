@@ -1,0 +1,19 @@
+<form class="registration" [formGroup]="form" (submit)="registration(form.value)">
+    <mat-form-field>
+      <input matInput id="email" placeholder="Name" required formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput id="password" placeholder="Surname" required formControlName="secondname">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput id="email" placeholder="Email" required formControlName="useremail">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput id="password" placeholder="Password" required formControlName="password">
+    </mat-form-field>
+
+    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Sing up</button>
+</form>
+
+
+  

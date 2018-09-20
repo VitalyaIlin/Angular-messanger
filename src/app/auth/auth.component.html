@@ -1,0 +1,10 @@
+<form class="auth-form" [formGroup]="auth_form" (submit)="authrization(auth_form.value)">
+    <mat-form-field>
+      <input matInput id="email" placeholder="Email" required formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput id="password" placeholder="Password" required formControlName="password">
+    </mat-form-field>
+
+    <button type="submit" [disabled]="auth_form.invalid" mat-raised-button color="primary">Sing in</button>
+</form>

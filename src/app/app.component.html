@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+    <mat-icon id="menu-toggle" [ngStyle]="{'opacity': token ? '1':'0'}" (click)="toggle()">menu</mat-icon>
+    <a routerLink="">My Application</a>
+
+
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    
+    <a *ngIf="token" routerLink="users"><mat-icon [ngStyle]="{'opacity': token ? '1':'0'}">person_add</mat-icon></a>
+    <mat-icon *ngIf="token" [ngStyle]="{'opacity': token ? '1':'0'}" (click)="getNotifications()">notifications</mat-icon>
+    <div class="notifications" *ngIf="notificationsToggle">
+        <div class="notifications-item" *ngFor="let notification of notifications">
+            <p>{{notification}}</p>
+        </div>
+    </div>
+    <a *ngIf="token" routerLink="cabinet">Profile</a>
+    <a *ngIf="!token" routerLink="registration">Sing up</a>
+    <a *ngIf="!token" routerLink="auth">Sing in</a>
+</mat-toolbar>
+
+<div *ngIf="menuToggle" id="menu">
+    <div class="menu-userdata">
+        <div class="menu-photo">
+            <img src="./../assets/uploads/{{profilePhotoName}}" *ngIf="profilePhotoName != 'undefined'">
+            <div class="no-photo" *ngIf="profilePhotoName == 'undefined'">
+                <p>{{firstname.substring(0,1).toUpperCase()}}</p>
+                <p>{{secondname.substring(0,1).toUpperCase()}}</p>
+            </div>
+        </div>
+        <p>{{ firstname }}</p>
+        <p>{{ secondname }}</p>
+    </div>
+    <a routerLink="settings">Settings</a>
+    <button mat-raised-button color="primary" (click)="logout()">Log out</button>
+</div>
+  
+<router-outlet></router-outlet>

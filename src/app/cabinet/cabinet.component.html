@@ -1,0 +1,33 @@
+<div id="wrapper">
+    <div id="menu">    
+        <div id="users">
+            <div *ngFor="let user of users" (click)="selectChat(user._id, user.firstname, user.secondname)" class="users-item">
+                <div class="users-item-photo-wrap" >
+                    <img src="../../assets/uploads/{{user.photoName}}" *ngIf="user.photoName" alt="">
+                    <div class="no-photo" *ngIf="!user.photoName">
+                        <p>{{user.firstname.substring(0,1).toUpperCase()}}</p>
+                        <p>{{user.secondname.substring(0,1).toUpperCase()}}</p>
+                    </div>
+                </div>
+                <p>{{user.firstname}}</p>
+                <p>{{user.secondname}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat">
+        <!--<div class="chat-preloader"></div>-->
+        <h5>{{recipientFirstname}} {{recipientSecondname}}</h5>
+        <div class="conversation" *ngFor="let message of conversation">
+            <p>{{message.text}}</p>
+        </div>
+        <div class="message-wrap">
+          
+            <input matInput id="message" #msg (keyup.enter)="sendMessage(msg.value)" placeholder="Write a message...">
+            <div class="message-wrap-send" (click)="sendMessage(msg.value)"><mat-icon>send</mat-icon></div>
+      
+        </div>
+    </div>
+        
+</div>
+
